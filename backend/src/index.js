@@ -17,6 +17,13 @@ app.use(morgan('dev'));
 // Routes
 app.use('/api/tasks', taskRoutes);
 
+app.get('/'),(req,res)=>{
+  res.send({
+    activeStatus:true,
+    error:false,
+  })
+}
+
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('Connected to MongoDB'))
